@@ -34,9 +34,7 @@ export default {
   }
   @include custom(630px) {
     flex: 1 1 100%;
-    padding: 0 1rem;
   }
-
   .icon {
     width: 2.25rem;
     height: 2.25rem;
