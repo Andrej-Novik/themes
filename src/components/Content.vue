@@ -86,6 +86,9 @@ export default {
     background-color: $Dark;
     max-width: 1100px;
     margin: -4rem auto 0 auto;
+		@include tablet{
+			margin: 0 auto 0 auto;
+		}
     h2 {
       text-align: center;
       color: $Orange;
