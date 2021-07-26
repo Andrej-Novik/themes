@@ -68,7 +68,7 @@ export default {
       right: 0.125rem;
     }
     .sliderLeft {
-      left: 0.25rem;
+      left: 0.125rem;
     }
   }
 }
