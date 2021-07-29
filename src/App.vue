@@ -15,13 +15,16 @@ export default {
     Header,
     Content,
   },
+  mounted() {
+    this.$store.commit("themes/initDataTheme");
+  },
 };
 </script>
 
 <style lang="scss">
 @import "./assets/styles/styles";
 body {
-  background-color: $Dark;
+  background-color: #686565;
   font-family: "Roboto", sans-serif;
 }
 .container {

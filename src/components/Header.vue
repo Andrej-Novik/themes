@@ -1,29 +1,23 @@
 <template>
   <header :class="$style.header">
-    <div :class="$style.logo">
-      <img src="../assets/images/logo.jpg" alt="" />
-    </div>
-    <div :class="$style.change" @click="change">
+    <div :class="$style.logo"></div>
+    <div :class="$style.title">Здесь должно быть название</div>
+    <div :class="$style.change" @click="$store.commit('themes/toggleTheme')">
       <div
-        :class="[
-          $style.slider,
-          !getIsDark ? $style.sliderRight : $style.sliderLeft,
-        ]"
+        :class="[$style.slider, theme === 'dark' ? $style.sliderLeft : $style.sliderRight]"
       ></div>
     </div>
   </header>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "Header",
-  computed: mapGetters(["getIsDark"]),
-  methods: {
-    ...mapMutations(["changeIsDark"]),
-    change() {
-      this.changeIsDark();
-    },
+  computed: {
+    ...mapState({
+      theme: (state) => state.themes.theme,
+    }),
   },
 };
 </script>
@@ -43,10 +37,19 @@ export default {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
+    background-color: $White;
+  }
+  .title {
+    color: $White;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    @include tablet {
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+    }
+    @include custom(630px) {
+      display: none;
     }
   }
   .change {
@@ -69,6 +72,22 @@ export default {
     }
     .sliderLeft {
       left: 0.125rem;
+    }
+  }
+}
+
+[data-theme="light"] .header {
+  background-color: $White;
+  .logo {
+    background-color: $Dark;
+  }
+  .title {
+    color: $Dark;
+  }
+  .change {
+    background-color: $Dark;
+    .slider {
+      background-color: $White;
     }
   }
 }

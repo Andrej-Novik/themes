@@ -1,22 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import themes from "./modules/themes"
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	state: {
-		isDark: true
+	modules: {
+		themes
 	},
-	getters: {
-		getIsDark(state) {
-			return state.isDark
-		}
-	},
-	mutations: {
-		changeIsDark(state) {
-			state.isDark = !state.isDark
-		}
-	},
-  actions: {},
-  modules: {},
 });

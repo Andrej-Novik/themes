@@ -111,4 +111,17 @@ export default {
     }
   }
 }
+
+[data-theme="light"] .container {
+  background-color: $White;
+  color: $Dark;
+  .info {
+    background-color: $White;
+    h2 {
+      span {
+        color: $Dark;
+      }
+    }
+  }
+}
 </style>
